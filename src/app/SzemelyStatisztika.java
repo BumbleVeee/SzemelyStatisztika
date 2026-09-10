@@ -1,5 +1,7 @@
 package app;
 
+import java.util.Random;
+
 public class SzemelyStatisztika {
 
     public static void main(String[] args) {
@@ -13,6 +15,8 @@ public class SzemelyStatisztika {
         int eletEv = eletkor(szulEv,aktualisEv);
         int nyugdij = 65;
         int hatralevoEv = nyugdijEv(eletEv, nyugdij);
+        
+        rnd = new Random();
         
         if (!megfeleloEletEv(eletEv)){
             throw new IllegalArgumentException("Az élet év nem lehet kisebb mint 0!");
@@ -32,9 +36,16 @@ public class SzemelyStatisztika {
         nyugdíjig hátrelévő évek száma: 65
         */
     }
+    
+    private static Random rnd;
 
-    private static String koszontes(String nev) {
+    static String koszontes(String nev) {
         return "Hello %s!".formatted(nev);
+    }
+    
+    static String koszontes(String nev, String[] koszontesek){
+        /*String[] koszontesek = {"Szia ", "Helló ", "Jó napot "};*/
+        return ":)";
     }
 
     private static int eletkor(int szulEv, int aktualisEv) {
